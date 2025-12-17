@@ -1,0 +1,51 @@
+# backend-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: backend-app:latest
+          env:
+            - name: DB_HOST
+              value: "mysql"
+            - name: DB_NAME
+              value: "book_review_db"
+            - name: DB_USER
+              value: "root"
+            - name: DB_PASS
+              value: "my-secret-pw"
+            - name: DB_DIALECT
+              value: "mysql"
+            - name: PORT
+              value: "3001"
+            - name: JWT_SECRET
+              value: "mysecretkey"
+            - name: ALLOWED_ORIGINS
+              value: "http://frontend"
+          ports:
+            - containerPort: 3001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: dev
+spec:
+  selector:
+    app: backend
+  ports:
+    - port: 3001
+      targetPort: 3001
+  type: ClusterIP

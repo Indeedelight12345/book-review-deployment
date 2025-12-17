@@ -1,0 +1,9 @@
+backend_port: 3001
+frontend_port: 3000
+frontend_node_port: 30080
+mysql_root_password: my-secret-pw
+mysql_database: book_review_db
+mysql_image: mysql:latest
+backend_image: rukevweubio/backend-app:latest
+frontend_image: rukevweubio/frontend-app:latest
+namespace: dev

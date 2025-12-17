@@ -1,0 +1,13 @@
+{
+	"image": "mcr.microsoft.com/devcontainers/universal:2",
+	"features": {
+		"ghcr.io/devcontainers/features/terraform:1": {},
+		"ghcr.io/dhoeric/features/google-cloud-cli:1": {},
+		"ghcr.io/hspaans/devcontainer-features/ansible-lint:2": {},
+		"ghcr.io/devcontainers-extra/features/ansible:2": {},
+		"ghcr.io/devcontainers-extra/features/terrascan:1": {},
+		"ghcr.io/devcontainers-extra/features/grype:1": {},
+		"ghcr.io/devcontainers-extra/features/infracost:1": {},
+		"ghcr.io/devcontainers-extra/features/kind:1": {}
+	}
+}
